@@ -1,3 +1,4 @@
 streamlit
 langchain
 streamlit_chat
+openai
