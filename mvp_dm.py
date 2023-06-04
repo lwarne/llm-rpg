@@ -37,7 +37,7 @@ def summarization_call(mem_input = None):
 
     # Set up summarization prompt
     summarization_prompt = """
-    The following is a converstion between a world building dungon master AI and human user
+    The following is a converstion between a world building dungeon master AI and human user
 
     {history}
 

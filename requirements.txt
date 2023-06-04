@@ -2,3 +2,5 @@ streamlit
 langchain
 streamlit_chat
 openai
+llama-index
+pypdf
