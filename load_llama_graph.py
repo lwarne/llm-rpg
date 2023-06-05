@@ -9,7 +9,7 @@ from langchain.agents import initialize_agent
 from llama_index.langchain_helpers.agents import LlamaToolkit, create_llama_chat_agent, IndexToolConfig
 from llama_index.indices.query.query_transform.base import DecomposeQueryTransform
 from llama_index.query_engine.transform_query_engine import TransformQueryEngine
-
+from langchain.agents import AgentType
 import os
 
 from apikey import oai_key
@@ -122,19 +122,22 @@ agent_chain = create_llama_chat_agent(
     llm,
     memory=memory,
     verbose=True,
-    prefix=agent_prefix,
+    # prefix=agent_prefix,
+    agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION
 )
 
 r1 = agent_chain.run(input="What are the play style options for a dungeon and dragons game?")
 print(r1)
 
+r2 = agent_chain.run(input="Work with me to build full setting for a campign. decribe the town im in, the governement, and the magic system to start ")
+print(r2)
 # cross_query_str = (
 #     "if i want to create a story world with a dark setting, what is a good small town setting and what does the government look like?"
 # )
 # r2 = agent_chain.run(input=cross_query_str)
 # print(r2)
 
-# while True:
-#     text_input = input("User: ")
-#     response = agent_chain.run(input=text_input)
-#     print(f'Agent: {response}')
+while True:
+    text_input = input("User: ")
+    response = agent_chain.run(input=text_input)
+    print(f'Agent: {response}')
